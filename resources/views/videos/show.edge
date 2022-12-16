@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruralcast</title>
+</head>
+<body>
+
+  <main>
+    <a href="{{ route('videos.create') }}">Criar videos</a>
+    <a href="{{ route('videos.index') }}">Listar videos</a>
+    <h1 class="title">Video</h1>
+    <div>
+        <label>Link</label>
+        <a href="{{ video.video }}"> Video </a>
+        
+    </div>
+    <div>
+        <label>Descricao</label>
+        <p>{{ video.description }}</p>
+    </div>
+</body>
+</html>

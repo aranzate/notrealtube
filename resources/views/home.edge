@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Pagina inicial</title>
+    </head>
+    <body>
+        <main>
+            <a href='/login'> Login </a>
+            <a href='/register'> Register </a>
+            <table>
+                <thead>
+                    <title>Usuarios</title>
+                </thead>
+                <tbody>
+                    @each(user in users)
+                    <tr>
+                        <td>{{user.id}}
+                        <td>{{user.user}}
+                        <td>{{user.email}}
+                    </tr>
+                    @end
+                </tbody>
+            </table>
+        </main>
+    </body>
+</html>

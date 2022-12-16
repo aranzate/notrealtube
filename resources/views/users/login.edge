@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de login</title>
+    @entryPointStyles('app')
+    @entryPointScripts('app')
+    </head>
+
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        body{
+            background: rgb(249,147,52);
+            background: linear-gradient(90deg, rgba(249,147,52,1) 0%, rgba(204,36,36,1) 68%);
+        }
+        form{
+            background-color: white;
+            max-width: 600px;
+            max-height: 60%;
+            padding: 20px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        form h1{
+            text-align: center;
+            color: darksalmon;
+        }
+        form input[type=text],
+        form input[type=password]{
+            width: 100%;
+            height: 45px;
+            border: 1px solid rgb(131, 5, 5);
+            padding-left: 10px;
+        }
+
+        form button[type=submit]{
+            width: 100%;
+            height: 30px;
+            cursor: pointer;
+            background-color: blanchedalmond;
+            color: darksalmon;
+            border: 0;
+            border-radius: 15px;
+        }
+        form button[type=submit]:hover{
+            background-color: #72624b;
+            color: rgb(71, 45, 37);
+            transition: 250ms;
+        }
+
+    </style>
+
+
+    <body>
+        <a href='/login'> Homepage </a>
+        <form action="{{ route('auth.store') }}" method="POST">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" placeholder="E-mail" />
+
+            <label for="password">Senha</label>
+            <input type="password" name="password" placeholder="Password"/>
+
+            <button type="submit">Login</button>
+          </form> 
+    </body>
+</html>
