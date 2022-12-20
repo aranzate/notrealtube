@@ -1,0 +1,15 @@
+@layout('layouts/form')
+
+
+@section('body')  
+    <title>Editar perfil</title>
+    <form action="{{ route('users.update') }}" method="POST">
+        <h3><a href="{{ route('home') }}"> FakeTube </a></h3>
+        <h3>Alteração de dados</h3>
+        <input type="text" name="name" placeholder="Novo nome">
+        <input type="email" name="email" placeholder="Novo e-mail">
+        <input type="password" name="password" placeholder="Nova senha">
+        <input type="password" name="confirmPassword" placeholder="Confirmar nova senha">
+        <input type="submit" value="Atualizar"> 
+    </form>
+@endsection
