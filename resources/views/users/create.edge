@@ -1,0 +1,15 @@
+@layout('layouts/form')
+
+
+@section('body')  
+    <title>Cadastrar</title>
+    <form action="{{ route('users.store') }}" method="POST">
+        <h3><a href="{{ route('home') }}"> FakeTube </a></h3>
+        <h3>Cadastro</h3>
+        <input type="text" name="name" placeholder="Nome">
+        <input type="email" name="email" placeholder="E-mail">
+        <input type="password" name="password" placeholder="Senha">
+        <input type="password" name="confirmPassword" placeholder="Confirmar senha">
+        <input type="submit" value="Criar conta"> 
+    </form>
+@endsection

@@ -1,0 +1,13 @@
+@layout('layouts/form')
+
+@section('body')
+    <title>Login</title>  
+    <form action="{{ route('sessions.store') }}" method="POST">
+        <h3><a href="{{ route('home') }}"> FakeTube </a></h3>
+        <h3>Login</h3>
+        <input type="email" name="email" placeholder="E-mail">
+        <input type="password" name="password" placeholder="Senha">
+        <input type="submit" value="Login">
+        <h3><a href="{{ route('users.create') }}"> Criar conta </a></h3> 
+    </form>
+@endsection
