@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videos</title>
+  @entryPointStyles('app')
+  @entryPointScripts('app')
+</head>
+<body>
+
+  <main>
+    <div>
+      <h1 class="title"> Videos </h1>
+      
+      @each(video in videos)
+            <tr>
+                <td>
+                  <a href="{{ route('videos.list', { id: video.id }) }}">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/lkCM5DyBxzg" title="{{ video.name }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+                    {{ video.description }}<br>
+                  </a>
+                </td>
+            </tr>
+        @end
+    </div>
+  </main>
+</body>
+</html>
