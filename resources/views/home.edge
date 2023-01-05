@@ -15,6 +15,7 @@
       
       @if(auth.isLoggedIn)
         <p>Bem-vindo {{ auth.user.name }} </p>
+        <p> <a href="{{route('videos.list')}}"> Videos</a> </p>
         <p> <a href="{{ route('users.edit') }}">Editar perfil</a> </p>
         <p> <a href="{{ route('sessions.delete') }}">Logout</a> </p>
       @endif

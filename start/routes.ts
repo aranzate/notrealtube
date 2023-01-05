@@ -32,6 +32,8 @@ Route.post('/register', 'UsersController.store').as('users.store')
 Route.get('/users/edit', 'UsersController.edit').as('users.edit')
 Route.post('/users/edit', 'UsersController.update').as('users.update')
 
+Route.get('/videos', 'VideosController.list').as('videos.list')
+
 
 Route.group(() =>{
   Route.get('/', 'DocumentsController.index').as('index')
