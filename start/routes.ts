@@ -32,6 +32,7 @@ Route.post('/register', 'UsersController.store').as('users/store')
 Route.get('/users/edit', 'UsersController.edit').as('users/edit')
 Route.put('/users/edit', 'UsersController.update').as('users/update')
 
+
 Route.get('/videos', 'VideosController.list').as('videos/list')
 Route.get('/videos/video/:id', 'VideosController.show').as('videos/show')
 Route.get('/videos/upload', 'VideosController.create').as('videos/create')
