@@ -1,0 +1,12 @@
+@layout('layouts/form')
+
+@section('body')  
+    <title>Editar vídeo {{videoId}}</title>
+    <form action="{{ route('videos/update', {id: videoId}) }}?_method=PUT" method="POST">
+        <a href="{{ route('videos/show', {id: videoId}) }}"><b>❮ Voltar </b> </a>
+        <h3>Editar informações do vídeo</h3>
+        <input type="text" name="name" placeholder="Nome" value="{{videoName}}">
+        <input type="text" name="description" placeholder="Descrição" value="{{videoDescription}}">
+        <button type="submit">Editar</button>
+    </form>
+@endsection

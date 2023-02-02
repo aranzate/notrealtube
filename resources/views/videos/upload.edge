@@ -1,0 +1,13 @@
+@layout('layouts/form')
+
+@section('body')  
+    <title>Upload de Vídeo</title>
+    <form action="{{ route('videos/store') }}" method="POST">
+        <a href="{{ route('videos/list') }}"> <b>❮ Voltar </b> </a>
+        <h3>Upload de Vídeo</h3>
+        <input type="text" name="name" placeholder="Nome">
+        <input type="text" name="description" placeholder="Descrição">
+        <input type="url" name="link" placeholder="Link">
+        <button type="submit">Upload</button>
+    </form>
+@endsection

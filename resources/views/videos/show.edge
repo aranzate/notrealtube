@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{videoName}}</title>
+
+  <style>
+    html,
+    body {
+      background: rgb(255, 166, 0);
+      background: linear-gradient(90deg, rgba(255, 166, 0, 1) 0%, rgba(255, 0, 0, 1) 100%);
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      color: black;
+      position: relative;
+      text-align: center;
+    }
+
+    a {
+      color: #e73e00;
+      text-decoration: none;
+    }
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    div {
+      background-color: aliceblue;
+      max-width: 620px;
+      width: 70%;
+      padding: 20px;
+      position: absolute;
+      left: 50%;
+      top: 5%;
+      transform: translate(-50%, 0%);
+      border-radius: 20px;
+      text-align: left;
+      display: table;
+    }
+
+    div h1 {
+      text-align: center;
+      color: black;
+    }
+
+    a.edit {
+      cursor: pointer;
+      position: absolute;
+      width: auto;
+      height: auto;
+      padding: 6.5px;
+      right: 10px;
+      background-color: #e73e00;
+      color: aliceblue;
+      border-radius: 20px;
+      border: none;
+    }
+
+    a.edit:hover {
+      background-color: rgb(116, 5, 5);
+      color: rgb(160, 160, 160);
+      transition: 250ms;
+    }
+    button.delete {
+      cursor: pointer;
+      position: absolute;
+      width: auto;
+      height: auto;
+      padding: 8px;
+      right: 70px;
+      background-color: #e73e00;
+      color: aliceblue;
+      border-radius: 20px;
+      border: none;
+    }
+
+    button.delete:hover {
+      background-color: rgb(116, 5, 5);
+      color: rgb(160, 160, 160);
+      transition: 250ms;
+    }
+
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div>
+      <a class="edit" href="{{ route('videos/edit', {id: videoId}) }}">Editar</a>
+        <form action="{{ route('videos/delete', {id: videoId}) }}?_method=DELETE" method="POST">
+          <button type="submit" class="delete">Deletar</button>
+        </form>
+      <a href="{{ route('videos/list') }}"><b>❮ Voltar </b> </a>
+      <h1><a href="{{ route('home') }}"> FakeTube </a></h1>
+      <h2>{{ videoName }}</h2>
+        <iframe width="580" height="315" src="{{videoLink}}" title="{{ videoName }}" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+        <br>
+        <p>{{ videoDescription }}</p>
+    </div>
+  </main>
+</body>
+
+</html>

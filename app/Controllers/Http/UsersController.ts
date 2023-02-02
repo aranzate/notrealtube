@@ -13,7 +13,8 @@ export default class UsersController {
         const confirmPassword = request.input('confirmPassword')
 
         if(password !== confirmPassword) {
-            return response.redirect().toRoute('users.create')
+            
+            return response.redirect().toRoute('users/create')
         }
 
         try {
@@ -21,14 +22,16 @@ export default class UsersController {
             await auth.use('web').login(user)
             return response.redirect().toRoute('home')
         } catch {
-            return response.redirect().toRoute('users.create')
+            return response.redirect().toRoute('users/create')
         }
 
         
     }
 
-    public async edit ({view}: HttpContextContract){        
-        return view.render('users.edit')
+    public async edit ({view, auth}: HttpContextContract){
+        const userName = auth.user?.name
+        const userEmail = auth.user?.email        
+        return view.render('users/edit', {userName: userName, userEmail: userEmail})
     }
 
     public async update ({auth, request, response}: HttpContextContract){        
@@ -38,7 +41,7 @@ export default class UsersController {
         const confirmPassword = request.input('confirmPassword')
         
         if(password !== confirmPassword){
-            return response.redirect().toRoute('users.edit')
+            return response.redirect().toRoute('users/edit')
         }
 
         const userId = auth.user?.id
@@ -53,7 +56,7 @@ export default class UsersController {
             return response.redirect().toRoute('home')
         }
         catch {
-            return response.redirect().toRoute('users.edit')
+            return response.redirect().toRoute('users/edit')
         }
     }
 
