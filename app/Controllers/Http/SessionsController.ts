@@ -3,8 +3,7 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 export default class SessionsController {
 
     public async create({ view }: HttpContextContract){
-
-        return view.render( 'sessions/create')
+        return view.render('sessions/create')
     }
 
     public async store({ auth, request, response }: HttpContextContract){
@@ -16,7 +15,7 @@ export default class SessionsController {
             response.redirect().toRoute('home')
         
         } catch{
-            return response.redirect().toRoute('sessions.create')
+            return response.redirect().toRoute('sessions/create')
         }
     }
 

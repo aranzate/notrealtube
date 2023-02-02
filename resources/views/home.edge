@@ -6,6 +6,19 @@
   <title>FakeTube</title>
   @entryPointStyles('app')
   @entryPointScripts('app')
+  <style>
+  * {
+    text-align: center;
+  }
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: grey;
+    text-align: center;
+  }
+  </style>
 </head>
 <body>
 
@@ -15,15 +28,16 @@
       
       @if(auth.isLoggedIn)
         <p>Bem-vindo {{ auth.user.name }} </p>
-        <p> <a href="{{ route('users.edit') }}">Editar perfil</a> </p>
-        <p> <a href="{{ route('sessions.delete') }}">Logout</a> </p>
+        <p> <a href="{{ route('videos/list') }}">Videos</a> </p>
+        <p> <a href="{{ route('users/edit') }}">Editar perfil</a> </p>
+        <p> <a href="{{ route('sessions/delete') }}">Logout</a> </p>
+      @else
+        <p> <a href="{{ route('sessions/create') }}">Fazer login</a> </p>
+        <p> <a href="{{ route('users/create') }}">Criar conta</a> </p> 
       @endif
-
-      @if(!auth.isLoggedIn)
-        <p> <a href="{{ route('sessions.create') }}">Fazer login</a> </p>
-        <p> <a href="{{ route('users.create') }}">Criar conta</a> </p>
-      @endif
-      
+      <div class="footer">
+        <p>Projeto desenvolvido por Leonardo Iglesias, Rafael Aranzate; 2022-2023. Orientado pelo professor Filipe Braida.</p>
+      </div>
     </div>
   </main>
 </body>
