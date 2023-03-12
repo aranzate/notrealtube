@@ -4,3 +4,6 @@ FakeTube is a video system in which users are able to upload YouTube videos. It 
 Made by Leonardo Iglesias Ferreira and Rafael Rocha Aranzate
 
 Advised by Filipe Braida
+----------------------------------------------------------------------------------------------------
+To run this project, you need to have Node.js installed, and create an .env file at the FakeTube`s root folder, and then copy the .env.example content to the newly created .env.
+After that, if you run the command "node ace serve --watch" without quotes, it should work properly.
