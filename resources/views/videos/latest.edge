@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vídeos</title>
+  <title>Últimos vídeos</title>
 
   <style>
     html,
@@ -73,12 +73,9 @@
   <main>
     <div>
       <a href="{{ route('/') }}"><b>❮ Voltar</b></p> </a>
-      @if(auth.isLoggedIn)
-        <a class="upload" href="{{route('videos/create')}}">Upload de vídeo</a>
-      @endif
       <h1><a href="{{ route('home') }}"> FakeTube </a></h1>
       <br><br>
-      <h2 class="title"> Vídeos </h2>
+      <h2 class="title"> Últimos vídeos </h2>
       <br>
       @each(video in videos)
       <tr>
@@ -86,11 +83,9 @@
           <a href="{{ route('videos/show', { id: video.id }) }}">
             <h3>{{ video.name }}</h3>
           </a>
-          
           <b><p>Visualizações: {{ video.views}}</p></b>
           <i>{{ video.description }}</i>
           <br><br>
-          
         </td>
       </tr>
       @end

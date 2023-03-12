@@ -1,21 +1,12 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
-export default class Video extends BaseModel {
+export default class VideoHistory extends BaseModel {
   @column({ isPrimary: true })
-  public id: number
+  public userId: number
 
-  @column()
-  public name: string
-
-  @column()
-  public link: string
-
-  @column()
-  public description: string
-
-  @column()
-  public views: number
+  @column({ isPrimary: true })
+  public videoId: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -23,3 +14,4 @@ export default class Video extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 }
+
