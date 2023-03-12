@@ -7,6 +7,12 @@
         <h3>Editar informações do vídeo</h3>
         <input type="text" name="name" placeholder="Nome" value="{{videoName}}">
         <input type="text" name="description" placeholder="Descrição" value="{{videoDescription}}">
-        <button type="submit">Editar</button>
+        <button type="submit" onclick="myFunction()">Editar</button>
     </form>
+
+    <script>
+        function myFunction() {
+            alert("Video editado com sucesso");
+        }
+    </script>
 @endsection

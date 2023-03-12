@@ -3,12 +3,22 @@
 @section('body')
     <title>Login</title>  
     <form action="{{ route('sessions/store') }}" method="POST">
-        <a href="{{ route('/') }}"> <b>❮ Voltar</b> </a>
+        <a href="{{ route('/') }}"> <b>❮ Página inicial</b> </a>
         <h3><a href="{{ route('home') }}"> FakeTube </a></h3>
         <h3>Login</h3>
         <input type="email" name="email" placeholder="E-mail">
         <input type="password" name="password" placeholder="Senha">
         <button type="submit">Login</button>
+
+        <h3 style="color:red">
+            @if(flashMessages.has('notification'))
+                <div class="notification-is-success is-light">
+                    {{flashMessages.get('notification')}}
+                </div>
+            @endif
+        </h3>
+
         <h3><a href="{{ route('users/create') }}"> Criar conta </a></h3> 
     </form>
+    
 @endsection

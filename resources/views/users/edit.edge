@@ -10,7 +10,16 @@
         <input type="text" name="name" placeholder="Novo nome" value="{{userName}}">
         <input type="email" name="email" placeholder="Novo e-mail" value="{{userEmail}}">
         <input type="password" name="password" placeholder="Nova senha">
-        <input type="password" name="confirmPassword" placeholder="Confirmar nova senha">
+        <input type="password" name="password_confirmation" placeholder="Confirmar nova senha">
+
+        <h3 style="color:red">
+            @if(flashMessages.has('notification'))
+                <div class="notification-is-success is-light">
+                    {{flashMessages.get('notification')}}
+                </div>
+            @endif
+        </h3>
+
         <button type="submit">Atualizar</button>
     </form>
 @endsection
