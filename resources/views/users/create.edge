@@ -4,13 +4,23 @@
 @section('body')  
     <title>Cadastrar</title>
     <form action="{{ route('users/store') }}" method="POST">
-        <a href="{{ route('sessions/create') }}"> <b>❮ Voltar</b> </a>
+        <a href="{{ route('home') }}"> <b>❮ Página inicial</b> </a>
         <h3><a href="{{ route('home') }}"> FakeTube </a></h3>
         <h3>Cadastro</h3>
         <input type="text" name="name" placeholder="Nome">
         <input type="email" name="email" placeholder="E-mail">
         <input type="password" name="password" placeholder="Senha">
-        <input type="password" name="confirmPassword" placeholder="Confirmar senha">
+        <input type="password" name="password_confirmation" placeholder="Confirmar senha">
+
+        <h3 style="color:red">
+            @if(flashMessages.has('notification'))
+                <div class="notification-is-success is-light">
+                    {{flashMessages.get('notification')}}
+                </div>
+            @endif
+        </h3>
+
         <button type="submit">Criar conta</button>
+        <h3><a href="{{ route('sessions/create') }}"> Fazer login </a></h3> 
     </form>
 @endsection
