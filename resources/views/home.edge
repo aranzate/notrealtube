@@ -28,13 +28,16 @@
       
       @if(auth.isLoggedIn)
         <p>Bem-vindo {{ auth.user.name }} </p>
-        <p> <a href="{{ route('videos/list') }}">Videos</a> </p>
+        <p> <a href="{{ route('videos/list') }}">Vídeos</a> </p>
+        <p> <a href="{{ route('videos/history') }}">Vídeos vistos</a> </p>
+        <p> <a href="{{ route('videos/latest') }}">Últimos vídeos</a> </p>
         <p> <a href="{{ route('users/edit') }}">Editar perfil</a> </p>
         <p> <a href="{{ route('sessions/delete') }}">Logout</a> </p>
       @else
+        <p> <a href="{{ route('videos/list') }}">Vídeos</a> </p>
+        <p> <a href="{{ route('videos/latest') }}">Últimos vídeos</a> </p>
         <p> <a href="{{ route('sessions/create') }}">Fazer login</a> </p>
-        <p> <a href="{{ route('users/create') }}">Criar conta</a> </p> 
-
+        <p> <a href="{{ route('users/create') }}">Criar conta</a> </p>
       @endif
       <div class="footer">
         <p>Projeto desenvolvido por Leonardo Iglesias, Rafael Aranzate; 2022-2023. Orientado pelo professor Filipe Braida.</p>

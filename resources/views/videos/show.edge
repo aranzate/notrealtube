@@ -86,6 +86,24 @@
       transition: 250ms;
     }
 
+    button.markAsViewed {
+      cursor: pointer;
+      width: auto;
+      height: auto;
+      padding: 8px;
+      right: 70px;
+      background-color: #e73e00;
+      color: aliceblue;
+      border-radius: 20px;
+      border: none;
+    }
+
+    button.markAsViewed:hover {
+      background-color: rgb(116, 5, 5);
+      color: rgb(160, 160, 160);
+      transition: 250ms;
+    }
+
     h2 {
       text-align: center;
     }
@@ -95,11 +113,21 @@
 <body>
   <main>
     <div>
-      <a class="edit" href="{{ route('videos/edit', {id: videoId}) }}">Editar</a>
+      @if(auth.isLoggedIn && auth.user.name == userName)
+        <a class="edit" href="{{ route('videos/edit', {id: videoId}) }}">Editar</a>
         <form action="{{ route('videos/delete', {id: videoId}) }}?_method=DELETE" method="POST">
           <button type="submit" class="delete">Deletar</button>
         </form>
-      <a href="{{ route('videos/list') }}"><b>❮ Voltar </b> </a>
+      @endif
+      
+      <a href="{{ route('videos/list') }}"><b>❮ Lista de vídeos </b> </a>
+      @if(auth.isLoggedIn)
+        <br>
+        <a href="{{ route('videos/history') }}"><b>❮ Vídeos vistos </b> </a>
+      @endif
+      <br>
+      <a href="{{ route('videos/latest') }}"><b>❮ Últimos vídeos </b> </a>
+      
       <h1><a href="{{ route('home') }}"> FakeTube </a></h1>
       <h2>{{ videoName }}</h2>
         <iframe width="580" height="315" src="{{videoLink}}" title="{{ videoName }}" frameborder="0"
@@ -107,7 +135,16 @@
           allowfullscreen>
         </iframe>
         <br>
+
+        <h4>Enviado por: {{ userName }}</h4>
+      
+      <p id="view">Visualizações: {{videoViews}}</p>
+      @if(auth.isLoggedIn)
         <p>{{ videoDescription }}</p>
+          <form action="{{ route('videos/addToHistory', {id: videoId}) }}?_method=POST" method="POST">
+            <button type="submit" class="markAsViewed">Marcar como visto</button>
+          </form>
+      @endif
     </div>
   </main>
 </body>
